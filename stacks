@@ -1,0 +1,110 @@
+***********STACK*********************
+*********************************STACK************
+****************************************************STACK********
+
+What is a stack ?
+
+{
+      stack is a linear data structure in which the items
+      are arranged in the form of (filo-first in last out) in 
+      stacks the insert and delete operations are called as 
+      push and pop
+
+}
+
+Diagramatic-representation
+
+{
+     consider a cylindrical coin holding case:
+        (in which coins can be taken only from top)
+     {          
+           | |                          |0|-->first Out coin
+           | |                          |0|
+           | |                          |0|
+           | |                          |0|
+           | |   ( if i put coins)-->   |0|
+           | |                          |0|                   
+           | |                          |0| 
+           | |                          |0|-->last Out coin
+     }
+     conclusion:
+     {
+            *you can only take the first inserted coin at the last after removing 
+                              all the coins from it-->( First in last out )
+            *you can take the last inserted coin at the first try because it
+                              is at the top-->( Last in first out )
+     }
+
+}
+
+IMPLEMENTING Ways:
+{
+      It can be implemented with the following:
+      {
+            --> lists
+            --> collections (deque)
+            --> queue (lifoqueue)
+      }
+}
+
+IMPLEMENTING CODE:
+{
+      Lists:
+      {
+            operations:
+            {
+                  *Append (adding element)
+                  *pop  (deleting the last)
+            }
+            Code:
+            {
+                  stack=[]
+                  stack.append(1)
+                  stack.pop()
+                  print(stack)
+            }
+      }
+      deque:
+      {
+            operations:
+            {
+                  *Append (adding element)
+                  *pop (deleting the last)
+            }
+            Code:
+            {
+                  from collections import deque
+                  stack=deque()
+                  stack.append(1)
+                  stack.pop()
+                  print(stack)
+            }
+      }
+      lifoqueue:
+      {
+            operations:
+            {
+                  *maxsize (allows count(elements) '<' maxsize)
+                  *empty (tells empty or not)
+                  *full (tells filled or not)
+                  *get (removes items)
+                         --advantage(if no elements are their it waits and removes the elements)
+                  *get_nowait(removes items)
+                  *put(value)-->append a value
+                         --advantage(if elements are full it waits and adds the elements)
+                  *put_nowait(value)--> appends a value
+                  *qsize()-->tells queue size
+            }
+            Code:
+            {
+                  from queue import LifoQueue
+                  stack=LifoQueue(maxsize=2)
+                  print(stack.empty())
+                  print(stack.full())
+                  print(stack.qsize())
+                  stack.put(1)
+                  stack.get()
+            }
+      }
+
+}
